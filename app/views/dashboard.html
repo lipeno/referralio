@@ -16,7 +16,7 @@
             </div>
             <div class="panel-body">
                 <form class="form-inline" role="form ">
-                    <div class="input-group">
+                    <div class="input-group separated">
                         <label class="sr-only" for="inputLink">Add a link</label>
                         <input ng-model="newLink" class="form-control" id="inputLink" placeholder="Referral link">
                         <span class="input-group-btn">
@@ -52,7 +52,7 @@
 
                         </td>
                         <td>{{link.clicks}}</td>
-                        <td><a ng-href="#/landing/{{link.title}}">#/landing/{{link.title}}</a></td>
+                        <td><a ng-href="#/landing/?link={{link.title}}">#/landing/?link={{link.title}}</a></td>
                         <td>
                             <button type="button" class="btn btn-warning" ng-click="editLink(id)">Edit</button>
                         </td>

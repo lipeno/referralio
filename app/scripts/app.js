@@ -22,6 +22,11 @@ angular.module('referralioApp', [
         templateUrl: 'views/login.html',
         controller: 'LoginController'
       })
+      .when('/landing', {
+        authRequired: false, // if true, must log in before viewing this page
+        templateUrl: 'views/landing.html',
+        controller: 'LandingController'
+      })
       .otherwise({
         redirectTo: '/'
       });
