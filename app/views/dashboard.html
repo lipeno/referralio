@@ -3,11 +3,70 @@
         <li class="active"><a ng-href="#dashboard">Dashboard</a></li>
         <li ng-controller="LoginController"><a href="#" ng-click="logout()">Log Out</a></li>
     </ul>
-    <h3 class="text-muted">Referral.io</h3>
+    <h3 class="text-muted"><a ng-href="#dashboard">Referral.io</a></h3>
 </div>
 
 <div class="row">
     <div class="col-md-12">
         <h2>Grow the web with referrals!</h2>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Referral links</h2>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline" role="form ">
+                    <div class="input-group">
+                        <label class="sr-only" for="inputLink">Add a link</label>
+                        <input ng-model="newLink" class="form-control" id="inputLink" placeholder="Referral link">
+                        <span class="input-group-btn">
+                           <button ng-click="addLink(newLink)" type="submit" class="btn btn-success" ng-disabled="errors != ''">Add</button>
+                        </span>
+                    </div>
+
+                    <div class="alert alert-danger" ng-show="errors != ''">{{errors}}</div>
+
+                </form>
+
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Link title</th>
+                        <th>Clicks</th>
+                        <th>Referral link</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(id, link) in links">
+                        <td>
+                            <div ng-hide="editedLinkId == id">
+                                {{link.title}}
+                            </div>
+                            <div ng-show="editedLinkId == id">
+                                <form ng-submit="doneEditing(id)">
+                                    <input class="edit" ng-model="link.title" element-blur="doneEditing(id)" element-focus="link == editedLink">
+                                </form>
+                            </div>
+
+                        </td>
+                        <td>{{link.clicks}}</td>
+                        <td><a ng-href="#/landing/{{link.title}}">#/landing/{{link.title}}</a></td>
+                        <td>
+                            <button type="button" class="btn btn-warning" ng-click="editLink(id)">Edit</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" ng-click="removeLink(id)">Delete</button>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
     </div>
 </div>
