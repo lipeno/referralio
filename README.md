@@ -1,6 +1,6 @@
 # Referral.io
 
-Referral.io is a simple app for automating referral links, made in a few hours.
+Referral.io is a simple app for automating referral links, made in a few hours for an interview for a job.
 
 Demo of the app is available at http://referralio.herokuapp.com/
 
